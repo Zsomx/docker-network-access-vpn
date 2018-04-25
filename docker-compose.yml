@@ -1,0 +1,35 @@
+version: '3'
+services:  
+  vpn:
+    image: hwdsl2/ipsec-vpn-server
+    environment:
+      - VPN_IPSEC_PSK=mypresharedkey
+      - VPN_USER=myuser
+      - VPN_PASSWORD=mypassword
+    ports:
+      - "500:500/udp"
+      - "4500:4500/udp"
+    networks:
+      vpn:
+        ipv4_address: 172.16.238.10
+    privileged: true
+    volumes:
+      - /lib/modules:/lib/modules:ro
+    hostname: vpn-server
+  owncloud:
+    image: owncloud:10.0.7
+    volumes:
+      - owncloud:/var/www/html
+    networks:
+      vpn:
+        ipv4_address: 172.16.238.11
+    hostname: owncoud
+volumes:
+  owncloud:
+networks:
+  vpn:
+    driver: bridge
+    ipam:
+        driver: default
+        config:
+            - subnet: 172.16.238.0/24
