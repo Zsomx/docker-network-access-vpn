@@ -18,7 +18,7 @@ This only works on Linux server.
  1. Connect to the VPN.
  2. In your browser, type the OwnCloud's ip: "172.16.238.11"
  
-# Use in Docker Swarm
+# Usage in Docker Swarm
 
 You only have to change the "vpn" network's driver to overlay.
 
