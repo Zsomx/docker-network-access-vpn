@@ -17,5 +17,9 @@ This only works on Linux server.
 
  1. Connect to the VPN.
  2. In your browser, type the OwnCloud's ip: "172.16.238.11"
+ 
+# Use in Docker Swarm
+
+You only have to change the "vpn" network's driver to overlay.
 
 VPN's original GitHub [repo](https://github.com/hwdsl2/docker-ipsec-vpn-server) could be useful for better understanding and troubleshooting.
