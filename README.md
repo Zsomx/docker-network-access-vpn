@@ -2,6 +2,7 @@
 
 This is my personal system. I use this for a low-end virtual machine.
 The purpuse is simple: a cheap and (relatively) secure Docker-Compose to store my own files and developments.
+Caution: This only works on Linux servers. The VPN server uses a kernel module that binded to the container.
 
 ### What is included?
  - VPN server to access the inner Docker network and containers
@@ -15,9 +16,7 @@ The purpuse is simple: a cheap and (relatively) secure Docker-Compose to store m
 
 # Install
 
-This only works on Linux server.
-
- 1. Change the environment variables of the vpn and gitea-db to some secure. 
+ 1. Change the environment variables of the vpn and gitea-db to some secure values. 
  2. Copy the docker-compose.yml file to the host.
  3. Enable the required kernel module on the host: "sudo modprobe af_key"
  4. Use "docker-compose up -d" to start the system.
